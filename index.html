@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Future College</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Merriweather', serif;
+            background: linear-gradient(135deg, #f4f4f4, #e0e0e0);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #003366, #002244);
+            padding: 10px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-right: 30px;
+        }
+
+        .college-name {
+            color: #ffffff;
+            font-size: 2em;
+            font-weight: bold;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            background: linear-gradient(135deg, #002244, #001122);
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+
+        main {
+            padding: 20px;
+            margin-bottom: 60px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #003366, #002244);
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            color: #ffffff;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background-image: url('file:///D:/cloud%20project/99-6190banner.jpg'); /* Add your hero background image */
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 1200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #ffffff;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text readability */
+            border-radius: 10px;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            font-family: 'Roboto', sans-serif;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero button {
+            background: linear-gradient(135deg, #003366, #002244);
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero button:hover {
+            transform: scale(1.05);
+        }
+
+        /* College Images */
+        .college-images {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .college-images img {
+            width: 30%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .college-images img:hover {
+            transform: scale(1.05);
+        }
+
+        /* About Section */
+        .about {
+            text-align: center;
+            padding: 100px 20px;
+            background-image: url('file:///D:/cloud%20project/grad.jpg'); /* Add your about background image */
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 1200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #ffffff;
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text readability */
+            border-radius: 10px;
+        }
+
+        .about h2 {
+            font-size: 2.5em;
+            font-family: 'Roboto', sans-serif;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about p {
+            font-size: 1.2em;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Courses Section */
+        .courses {
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        .courses h2 {
+            color: #003366;
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+        }
+
+        .course-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .course-item {
+            background: linear-gradient(135deg, #003366, #002244);
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1 1 calc(33.333% - 40px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            color: #ffffff;
+        }
+
+        .course-item:hover {
+            transform: scale(1.05);
+        }
+
+        .course-item h3 {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .course-item p {
+            color: #e0e0e0;
+        }
+
+        /* Blog Section */
+        .blog {
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        .blog h2 {
+            color: #003366;
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+        }
+
+        .blog article {
+            background: linear-gradient(135deg, #003366, #002244);
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #ffffff;
+        }
+
+        .blog article h3 {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .blog article p {
+            color: #e0e0e0;
+        }
+
+        /* Course Details Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-content h3 {
+            color: #003366;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .modal-content p {
+            color: #555;
+        }
+
+        .modal-content ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .close-btn {
+            float: right;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #003366;
+        }
+
+        /* Admission Section */
+        .admission {
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 1200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .admission h2 {
+            color: #003366;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .admission form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .admission form label {
+            margin: 10px 0 5px;
+            color: #333;
+        }
+
+        .admission form input, .admission form select, .admission form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        .admission form button {
+            background: linear-gradient(135deg, #003366, #002244);
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: transform 0.3s ease;
+        }
+
+        .admission form button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 1200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact h2 {
+            color: #003366;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact form label {
+            margin: 10px 0 5px;
+            color: #333;
+        }
+
+        .contact form input, .contact form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        .contact form button {
+            background: linear-gradient(135deg, #003366, #002244);
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: transform 0.3s ease;
+        }
+
+        .contact form button:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <img src="D:\cloud project\ccimg1.png" alt="College Logo" class="logo">
+            <h1 class="college-name">Bright Future College</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#admission">Admission</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="hero">
+            <h1>Welcome to Bright Future College</h1>
+            <p>Learn, Grow, and Succeed with our comprehensive courses.</p>
+            <button onclick="window.location.href='#courses'">Explore Courses</button>
+        </section>
+
+        <!-- College Images -->
+        <div class="college-images">
+            <img src="D:\cloud project\1607667136phpyJrrxV.jpeg" alt="College Building 1">
+            <img src="D:\cloud project\audi.jpg" alt="College Building 2">
+            <img src="D:\cloud project\campus.jpeg" alt="College Building 3">
+        </div>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <h2>About Us</h2>
+            <p>We are a team of educators dedicated to providing quality education to everyone. Our mission is to empower students with knowledge and skills for a brighter future.</p>
+        </section>
+
+        <!-- Courses Section -->
+        <section id="courses" class="courses">
+            <h2>Our Courses</h2>
+            <div class="course-list">
+                <div class="course-item" onclick="openModal('Web Development')">
+                    <h3>Web Development</h3>
+                    <p>Learn to build modern websites and web applications.</p>
+                </div>
+                <div class="course-item" onclick="openModal('Data Science')">
+                    <h3>Data Science</h3>
+                    <p>Master data analysis, machine learning, and data visualization.</p>
+                </div>
+                <div class="course-item" onclick="openModal('Machine Learning')">
+                    <h3>Machine Learning</h3>
+                    <p>Explore the world of AI and machine learning.</p>
+                </div>
+                <div class="course-item" onclick="openModal('Graphic Design')">
+                    <h3>Graphic Design</h3>
+                    <p>Create stunning visuals and designs.</p>
+                </div>
+                <div class="course-item" onclick="openModal('Mobile App Development')">
+                    <h3>Mobile App Development</h3>
+                    <p>Build cross-platform mobile apps.</p>
+                </div>
+                <div class="course-item" onclick="openModal('Cloud Computing')">
+                    <h3>Cloud Computing</h3>
+                    <p>Learn to deploy and manage applications on the cloud.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Details Modal -->
+        <div id="courseModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <h3 id="modalTitle"></h3>
+                <p id="modalDescription"></p>
+                <p><strong>Duration:</strong> <span id="modalDuration"></span></p>
+                <p><strong>Syllabus:</strong></p>
+                <ul id="modalSyllabus"></ul>
+            </div>
+        </div>
+
+        <!-- Blog Section -->
+        <section id="blog" class="blog">
+            <h2>Blog</h2>
+            <article>
+                <h3>How to Learn Web Development</h3>
+                <p>Start with HTML, CSS, and JavaScript, then move to frameworks like React and backend technologies like Node.js.</p>
+            </article>
+            <article>
+                <h3>Top 5 Data Science Tools</h3>
+                <p>Discover the most popular tools for data science, including Python, R, Jupyter Notebooks, and TensorFlow.</p>
+            </article>
+            <article>
+                <h3>Why Choose Machine Learning?</h3>
+                <p>Machine learning is revolutionizing industries. Learn how to get started in this exciting field.</p>
+            </article>
+            <article>
+                <h3>Graphic Design Trends in 2023</h3>
+                <p>Stay updated with the latest trends in graphic design and how to apply them in your projects.</p>
+            </article>
+        </section>
+
+        <!-- Admission Section -->
+        <section id="admission" class="admission">
+            <h2>Admission</h2>
+            <form>
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="course">Select Course:</label>
+                <select id="course" name="course" required>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Data Science">Data Science</option>
+                    <option value="Machine Learning">Machine Learning</option>
+                    <option value="Graphic Design">Graphic Design</option>
+                    <option value="Mobile App Development">Mobile App Development</option>
+                    <option value="Cloud Computing">Cloud Computing</option>
+                </select>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Submit Application</button>
+            </form>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <h2>Contact Us</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Bright Future College. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript for Course Details Modal
+        function openModal(courseTitle) {
+            const modal = document.getElementById('courseModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            const modalDuration = document.getElementById('modalDuration');
+            const modalSyllabus = document.getElementById('modalSyllabus');
+
+            // Set modal content based on course title
+            switch (courseTitle) {
+                case 'Web Development':
+                    modalTitle.textContent = 'Web Development';
+                    modalDescription.textContent = 'Learn to build modern websites and web applications using HTML, CSS, JavaScript, and frameworks like React.';
+                    modalDuration.textContent = '6 Months';
+                    modalSyllabus.innerHTML = `
+                        <li>HTML & CSS Basics</li>
+                        <li>JavaScript Fundamentals</li>
+                        <li>React Framework</li>
+                        <li>Backend with Node.js</li>
+                    `;
+                    break;
+                case 'Data Science':
+                    modalTitle.textContent = 'Data Science';
+                    modalDescription.textContent = 'Master data analysis, machine learning, and data visualization with Python and R.';
+                    modalDuration.textContent = '8 Months';
+                    modalSyllabus.innerHTML = `
+                        <li>Python Programming</li>
+                        <li>Data Analysis with Pandas</li>
+                        <li>Machine Learning Basics</li>
+                        <li>Data Visualization with Matplotlib</li>
+                    `;
+                    break;
+                case 'Machine Learning':
+                    modalTitle.textContent = 'Machine Learning';
+                    modalDescription.textContent = 'Explore the world of AI and machine learning with hands-on projects and real-world applications.';
+                    modalDuration.textContent = '10 Months';
+                    modalSyllabus.innerHTML = `
+                        <li>Introduction to AI</li>
+                        <li>Supervised Learning</li>
+                        <li>Unsupervised Learning</li>
+                        <li>Deep Learning with TensorFlow</li>
+                    `;
+                    break;
+                case 'Graphic Design':
+                    modalTitle.textContent = 'Graphic Design';
+                    modalDescription.textContent = 'Create stunning visuals and designs using tools like Adobe Photoshop, Illustrator, and Figma.';
+                    modalDuration.textContent = '4 Months';
+                    modalSyllabus.innerHTML = `
+                        <li>Introduction to Graphic Design</li>
+                        <li>Adobe Photoshop Basics</li>
+                        <li>Adobe Illustrator Basics</li>
+                        <li>Figma for UI/UX Design</li>
+                    `;
+                    break;
+                case 'Mobile App Development':
+                    modalTitle.textContent = 'Mobile App Development';
+                    modalDescription.textContent = 'Build cross-platform mobile apps using Flutter and React Native.';
+                    modalDuration.textContent = '7 Months';
+                    modalSyllabus.innerHTML = `
+                        <li>Introduction to Flutter</li>
+                        <li>React Native Basics</li>
+                        <li>Building UI Components</li>
+                        <li>API Integration</li>
+                    `;
+                    break;
+                case 'Cloud Computing':
+                    modalTitle.textContent = 'Cloud Computing';
+                    modalDescription.textContent = 'Learn to deploy and manage applications on AWS, Azure, and Google Cloud.';
+                    modalDuration.textContent = '9 Months';
+                    modalSyllabus.innerHTML = `
+                        <li>Introduction to Cloud Computing</li>
+                        <li>AWS Basics</li>
+                        <li>Azure Fundamentals</li>
+                        <li>Google Cloud Platform</li>
+                    `;
+                    break;
+            }
+
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('courseModal');
+            modal.style.display = 'none';
+        }
+
+        // Close modal if clicked outside
+        window.onclick = function (event) {
+            const modal = document.getElementById('courseModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>
